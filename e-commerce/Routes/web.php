@@ -37,13 +37,10 @@ Router::post('/login' , [UserController::class, 'processLogUser']);
 Router::get('/createLogin' , [UserController::class, 'createLogin']);
 Router::post('/createLogin' , [UserController::class, 'processCreateLog']);
 
+Router::get('/pesquisa', [UserController::class, 'pesquisa']);
 
 Router::get('/session', function () {
     var_dump($_SESSION);
 });
 
-Router::get('/admin', [AdminController::class, 'home']);
-Router::get('/tabela/export', [TabelaController::class, 'export']);
-Router::get('/notFound', [errorsController::class, 'notFound']);
-Router::get('/500', [errorsController::class, 'error500']);
 

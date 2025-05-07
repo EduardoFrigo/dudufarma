@@ -12,6 +12,11 @@ class UserController{
         $path = realpath(__DIR__ . '/../Views/userViews/') . DIRECTORY_SEPARATOR;
         require_once $path . "createLogin.php"; 
     }
+
+    public static function pesquisa(){
+        $path = realpath(__DIR__ . '/../Views/sysViews/') . DIRECTORY_SEPARATOR;
+        require_once $path . "pesquisa.php"; 
+    }
     public static function processLogUser() {
         if (isset($_POST['email']) && isset($_POST['senha'])) {
             $email = $_POST['email'];
@@ -21,7 +26,7 @@ class UserController{
             if ($userLog = $user->login($email, $senha)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['idCliente'] = $userLog['id'];  
-                header("Location: /framework/public/");
+                header("Location: /");
                 exit();
             } else {
                 echo "Email ou senha incorretos!";
@@ -39,7 +44,7 @@ class UserController{
             $user = new User();
             
             if ($user->create($nome, $email, $senha)) {
-                header("Location: /framework/public");
+                header("Location: /");
                 exit();
             } else {
                 echo "Erro ao cadastrar usuário.";

@@ -4,25 +4,13 @@ ini_set('display_errors', 1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-
-// use App\Helpers\ViewHelper;
-
-// var_dump(class_exists('App\Helpers\ViewHelper'));
-// echo ViewHelper::test();
-
-
-// define('ENVIRONMENT', 'development');
-
-
-
-// define('ENVIRONMENT', 'development');
     use App\Helpers\ViewHelper;
     include ViewHelper::userView('partials/nav.php');
     
 
 require_once __DIR__ . '/../Routes/web.php';
 
-Router::dispatch();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,11 +22,13 @@ Router::dispatch();
 </head>
 <body>
     <main>
+        <div class="container">
         <?php
-
+        Router::dispatch();
         
         
         ?>
+        </div>
     </main>
 </body>
 </html>
